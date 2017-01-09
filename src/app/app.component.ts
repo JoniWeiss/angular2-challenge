@@ -1,24 +1,43 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+
 import { Furbaby } from './furbaby';
 
-const FURBABYS: Furbaby[] = [
-  { id: 11, name: 'Terry', species: 'dog', breed: 'Shelty', image: 'Brooklyn.jpg' },
-  { id: 12, name: 'Miles', species: 'dog', breed: 'Cocker Spaniel', image: 'Buckley.jpg' },
-  { id: 13, name: 'Izzy', species: 'dog',  breed: 'Maltese', image: 'Butler.jpg' },
-  { id: 14, name: 'Daisy', species: 'dog', breed: 'Black Labradore', image: 'Guinness.jpg' },
-  { id: 15, name: 'Coda', species: 'dog',  breed: 'Wolf', image: 'Maggie.jpg' }
-]
+import { FurbabyService } from './furbaby.service'
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  template: `
+   <h2>{{subTitle}}</h2>
+
+    <ul class="furbabys">
+        <li *ngFor="let furbaby of furbabys" [class.selected]="furbaby === selectedFurbaby" (click)="onSelect(furbaby)">
+            <span class="badge">{{furbaby.id}}</span> {{furbaby.name}} {{furbaby.species}} {{furbaby.breed}}
+            <img class="furbaby-sm" src="../assets/furbabies/{{furbaby.image}}" alt="">
+        </li>
+    </ul>
+    <furbaby-detail [furbaby]="selectedFurbaby"></furbaby-detail>
+    `,
+  styleUrls: ['./app.component.css'],
+  providers: [FurbabyService]
 })
-export class AppComponent {
+
+export class AppComponent implements OnInit {
   title = 'Furbaby Photo Book';
-  subTitle = "A photo book of our family's furry family."
-  furbabys = FURBABYS;
+  subTitle = 'A photo book of our family\'s furry family.';
+  furbabies: Furbaby[];
   selectedFurbaby: Furbaby;
+
+  constructor(private furbabyService: FurbabyService) { }
+
+  getFurbabies(): void {
+    this.furbabyService.getFurbabies().then(furbabies => this.furbabies = furbabies)
+  }
+
+  ngOnInit(): void {
+    this.getFurbabies;
+  }
+
+  
   onSelect(furbaby: Furbaby): void {
     this.selectedFurbaby = furbaby;
   }
