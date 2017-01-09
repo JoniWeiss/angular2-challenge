@@ -4,15 +4,17 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
+import { FurbabyDetailComponent } from './furbaby-detail.component';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule
+  ],
+  declarations: [
+    FurbabyDetailComponent,
+    AppComponent 
   ],
   providers: [],
   bootstrap: [AppComponent]

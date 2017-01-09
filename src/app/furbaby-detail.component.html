@@ -1,0 +1,10 @@
+<div *ngIf="selectedFurbaby">
+    <h2>{{selectedFurbaby.name}} Details:</h2>
+    <div>
+        <label>Name: </label>
+        <input [(ngModel)]="selectedFurbaby.name" placeholder="name">
+    </div>
+    <div><label>id: </label>{{selectedFurbaby.id}}</div>
+    <div><label>Breed: </label>{{selectedFurbaby.breed}}</div>
+    <div><img class="furbaby-md" src="../assets/furbabies/{{selectedFurbaby.image}}"></div>
+</div>

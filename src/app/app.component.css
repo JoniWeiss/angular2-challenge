@@ -1,0 +1,63 @@
+.furbaby-sm {
+    width: 10vw;
+    height: 10vw;
+}
+
+.furbaby-md {
+    width: 20vw;
+    height: 20vw;
+}
+
+.selected {
+    background-color: #CFD8DC !important;
+    color: white;
+}
+
+.furbabys {
+    margin: 0 0 2vw 0;
+    list-style-type: none;
+    padding: 0;
+    width: 40vw;
+}
+
+.furbabys li {
+    cursor: pointer;
+    position: relative;
+    left: 0;
+    background-color: #EEE;
+    margin: .5em;
+    padding: .3em 0;
+    height: 12vw;
+    border-radius: 4px;
+}
+
+.furbabys li.selected:hover {
+    background-color: #BBD8DC !important;
+    color: white;
+}
+
+.furbabys li:hover {
+    color: #607D8B;
+    background-color: #DDD;
+    left: .1em;
+}
+
+.furbabys .text {
+    position: relative;
+    top: -3px;
+}
+
+.furbabys .badge {
+    display: inline-block;
+    font-size: small;
+    color: white;
+    padding: 0.8em 0.7em 0 0.7em;
+    background-color: #607D8B;
+    line-height: 1em;
+    position: relative;
+    left: -1px;
+    top: -4px;
+    height: 1.8em;
+    margin-right: .8em;
+    border-radius: 4px 0 0 4px;
+}
